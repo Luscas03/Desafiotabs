@@ -19,10 +19,12 @@ const routes: Routes = [
         path: 'sobre',
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
+     
       {
         path: '**',
       loadChildren: () => import('../tab404/tab404.module').then(m => m.Tab404PageModule)
     },
+   
       {
         path: '',
         redirectTo: '/tabs/home',

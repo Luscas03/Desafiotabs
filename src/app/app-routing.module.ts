@@ -10,12 +10,14 @@ const routes: Routes = [
     path: 'tab404',
     loadChildren: () => import('./tab404/tab404.module').then( m => m.Tab404PageModule)
   },
+
   //Rota para rotas inexistentes sempre manter a ultima
 
   {
   path: '**',
   loadChildren: () => import('./tab404/tab404.module').then( m => m.Tab404PageModule)
-}
+},
+  
 ];
 @NgModule({
   imports: [

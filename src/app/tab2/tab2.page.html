@@ -1,13 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="ion-text-center">
-    Usuários
+    Lista de Usuários
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
- Usuarios
+<ion-content class="ion-padding">
 
- 
+  <!-- Mostra spinner enquanto carrega os dados -->
+  <div class="ion-text-center ion-margin ion-padding" *ngIf="!data">
+    <ion-spinner name="lines"></ion-spinner>
+  </div>
+
+  <!-- Se existem usuários para mostrar / Loop -->
+  <ion-list *ngFor="let user of data">
+    
+    <!-- Dados do usuário -->
+    <ion-item [routerLink]="['/usuario/', user.id]">
+      <ion-avatar slot="start">
+        <img src="{{user.avatar}}" alt="{{user.name}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{user.name}}</h2>
+        <h3>{{user.email}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- Se não existem usuários para mostrar -->
+  <ion-list *ngIf="data.length === 0">
+    <ion-item color="danger">
+      <ion-label class="ion-text-center">Nenhum usuário foi encontrado!</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
