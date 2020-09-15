@@ -1,0 +1,7 @@
+{
+  "name": "iotabs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
